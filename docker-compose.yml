@@ -48,20 +48,20 @@ services:
   #     timeout: 5s
   #     retries: 10
 
-  # postgres:
-  #   image: "postgres:16"
-  #   container_name: gpt-load-postgres
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: 123456
-  #     POSTGRES_DB: gpt-load
-  #   volumes:
-  #     - ./data/postgres:/var/lib/postgresql/data
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U postgres -d gpt-load"]
-  #     interval: 5s
-  #     timeout: 5s
-  #     retries: 10
+   postgres:
+    image: "postgres:16"
+    container_name: gpt-load-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: gpt-load
+     volumes:
+       - ./data/postgres:/var/lib/postgresql/data
+     healthcheck:
+       test: ["CMD-SHELL", "pg_isready -U postgres -d gpt-load"]
+       interval: 5s
+       timeout: 5s
+       retries: 10
 
   # redis:
   #   image: redis:latest
